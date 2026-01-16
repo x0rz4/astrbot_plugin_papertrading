@@ -66,7 +66,7 @@ class UserCommandHandlers:
             return
 
         # 解析金额
-        parts = event.get_plain_text().strip().split()
+        parts = event.message_str.strip().split()
         if len(parts) < 2:
             yield MessageEventResult().message("❌ 参数错误，格式: /股票入金 <金额>")
             return
@@ -102,7 +102,7 @@ class UserCommandHandlers:
             yield MessageEventResult().message("❌ 您还未注册，请先使用 /股票注册")
             return
 
-        parts = event.get_plain_text().strip().split()
+        parts = event.message_str.strip().split()
         if len(parts) < 2:
             yield MessageEventResult().message("❌ 参数错误，格式: /股票出金 <金额>")
             return
